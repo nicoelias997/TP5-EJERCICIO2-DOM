@@ -10,42 +10,53 @@ class Persona{
     }
     mostrarGeneracion(){
         if(this.nacimiento < 1930 || this.nacimiento > 2010){
-            alert(`<p>${this.nombre}, con edad: ${this.edad} no pertenece a niguna generacion.</p>`)
+            alert(
+            `${this.nombre}, con edad: ${this.edad} no pertenece a niguna generacion.`)
         } 
         else if(this.nacimiento >= 1930 && this.nacimiento <= 1948){
-            alert(`<p>${this.nombre}, con edad: ${this.edad} pertenece a la <strong>Silent Generation</strong>, referidas a los niños de la posguerra.<br>Su rango caracteristico es la <strong>austeridad</strong></p>`)
+            alert(`
+            ${this.nombre}, con edad: ${this.edad} pertenece a la Silent Generation, referidas a los niños de la posguerra.
+            Su rango caracteristico es la austeridad.`)
         }
         else if(this.nacimiento >= 1949 && this.nacimiento <= 1968){
-            alert(`<p>${this.nombre}, con edad: ${this.edad} pertenece a la <strong>Baby Boom</strong>.<br>Su rango caracteristico es la <strong>ambicion</strong></p>`)
+            alert(`
+            ${this.nombre}, con edad: ${this.edad} pertenece a la Baby Boom.
+            Su rango caracteristico es la ambicion`)
         }
         else if(this.nacimiento >= 1969 && this.nacimiento <= 1980){
-            alert(`<p>${this.nombre}, con edad: ${this.edad} pertenece a la <strong>generacion X</strong>.<br>Su rango caracteristico es la <strong>obsesion por el exito</strong></p>`)
+            alert(`
+            ${this.nombre}, con edad: ${this.edad} pertenece a la generacion X.
+            Su rango caracteristico es la obsesion por el exito.`)
         }
         else if(this.nacimiento >= 1981 && this.nacimiento <= 1993){
-            alert(`<p>${this.nombre}, con edad: ${this.edad} pertenece a la <strong>generacion Y</strong>, llamados tambien milennials.<br>Su rango caracteristico es la <strong>frustracion</strong></p>`)
+            alert(`
+            ${this.nombre}, con edad: ${this.edad} pertenece a la generacion Y, llamados tambien milennials.
+            Su rango caracteristico es la frustracion`)
         }
         else if(this.nacimiento >= 1994 && this.nacimiento <= 2010){
-            alert(`<p>${this.nombre}, con edad: ${this.edad} pertenece a la <strong>generacion Z</strong>.<br>Su rango caracteristico es la <strong>irreverencia</strong></p>`)
+            alert(`
+            ${this.nombre}, con edad: ${this.edad} pertenece a la generacion Z.
+            Su rango caracteristico es la irreverencia.`)
         }
     }
     esMayorDeEdad(){
         if(this.edad >= 18){
             alert(`${this.nombre} eres mayor de edad.`)
-        }
-        if(this.edad < 18 || isNaN(this.edad)){
-            alert(`${this.persona} eres menor de edad, debes esperar a cumplir 18 años!`)
+        }else if(this.edad < 18 && this.edad >= 0){
+            alert(`${this.nombre} eres menor de edad, debes esperar a cumplir 18 años!`)
+        } else{
+            alert("Ingresa un numero correcto!")
         }
     }
     mostrarDatos(){
-        alert(`<ul>
-        <li>Nombre: ${this.nombre}.</li>
-        <li>Edad: ${this.edad}.</li>
-        <li>Dni: ${this.dni}.</li>
-        <li>Sexo: ${this.sexo}.</li>
-        <li>Peso: ${this.peso} kg.</li>
-        <li>Altura: ${this.altura} metros.</li>
-        <li>Fecha de nacimiento: ${this.nacimiento}.</li>
-        </ul>`)
+        alert(`
+        Nombre: ${this.nombre}.
+        Edad: ${this.edad}.
+        Dni: ${this.dni}.
+        Sexo: ${this.sexo}.
+        Peso: ${this.peso} kg.
+        Altura: ${this.altura} cm.
+        Fecha de nacimiento: ${this.nacimiento}.`)
     }
     generarDni(){
         let dni = Math.floor((Math.random() * (99999999 - 1 + 1)) + 1);
@@ -68,10 +79,15 @@ class Persona{
     document.querySelector("#edad").value,
     document.querySelector("#dni").value,
     document.querySelector("#sexo").value,
-    document.querySelector("#altura").value,
     document.querySelector("#peso").value,
+    document.querySelector("#altura").value,
     document.querySelector("#nacimiento").value,
     )
+    if(document.querySelector("#nombre").value != "" && document.querySelector("#edad").value != "" && document.querySelector("#nacimiento").value != ""){
+    alert(`Te inscribiste correctamente, ${document.querySelector("#nombre").value}.`)
+    } else {
+    alert(`Debes completar correctamente al menos tu nombre, edad y tu fecha de nacimiento.`)
+    }
     console.log(persona1)
  }
 
